@@ -1,0 +1,13 @@
+<aura:component controller="ManagerDisplay_Class" implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="recordId" type="String" />            
+    <aura:attribute type="Contact[]" name="conList"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.fetchCons}"/>
+    
+    <lightning:datatable data="{! v.conList }" 
+                         columns="{! v.mycolumns }" 
+                         keyField="id"
+                         hideCheckboxColumn="true"/>
+    
+</aura:component>

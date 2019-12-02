@@ -1,0 +1,23 @@
+<aura:component >
+    <aura:attribute name="item" type="Contact" required="true"/>
+    <div class="slds-box slds-theme_shade">  
+    <p>
+    	Id: <ui:outputText value="{!v.item.Id}"/>
+    </p>
+    <p>
+    	First Name: <ui:outputText value = "{!v.item.FirstName}"/>
+    </p>
+    <p>
+    	Last Name: <ui:outputText value = "{!v.item.LastName}"/>
+    </p>
+    
+    <p>
+    	Account: <ui:outputText value="{!v.item.AccountID.Name}"/>
+    </p>
+    
+    <p>
+    	Email: <ui:outputText value="{!v.item.Email}"/>
+    </p>
+    
+    </div>
+</aura:component>

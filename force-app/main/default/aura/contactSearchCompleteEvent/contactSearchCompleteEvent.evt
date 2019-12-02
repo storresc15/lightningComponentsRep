@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="This is the event used on Contact Search Example">
+    <aura:attribute name="contacts" type="Contact[]" />
+</aura:event>

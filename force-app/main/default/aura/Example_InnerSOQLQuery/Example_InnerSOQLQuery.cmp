@@ -1,0 +1,20 @@
+<aura:component controller="getSOQLdata">
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   <aura:attribute name="accList" type="Account[]"/>
+    
+   <ul>
+      <aura:iteration items="{!v.accList}" var="acc">
+         <li type="dice">Account Name is {!acc.Name} and its Annual Revenue is {!acc.AnnualRevenue}</li>
+          
+         <ul>
+            <aura:iteration items="{!acc.Contacts}" var="con" indexVar="index">
+               <li>Contact {!index + 1} Name is {!con.Name}</li>
+            </aura:iteration>
+         </ul>
+         <hr/>
+          
+      </aura:iteration>
+   </ul>
+    
+    
+</aura:component>

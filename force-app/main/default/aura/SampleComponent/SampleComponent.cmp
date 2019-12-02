@@ -1,0 +1,36 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="httpCallOutCtrl">
+    <aura:attribute name="response" type="Map"/>
+    <aura:attribute name="ListOfCurrency" type="String[]"/>
+    <aura:attribute name="convertionNumber" type="integer" default="1" />
+    <aura:attribute name="ConvertedList" type="String[]"/>
+    
+    <div class="slds-m-around--large">
+        <!--Header part-->
+        <div class="slds-page-header" role="banner">
+            <div class="slds-media__body">
+                <p class="slds-page-header__title slds-truncate" title="foreign exchange rates">Foreign Exchange Rates By HTTP Callouts</p>
+            	<br></br>
+                <lightning:button variant="brand" label="Make CallOut" onclick="{! c.calloutCtrl }" />             
+            </div>
+        </div>
+        <!--Header part close-->
+        <h3 class="slds-section-title--divider"> Base : {!v.response.base}</h3>
+        <h3 class="slds-section-title--divider"> Date : {!v.response.date}</h3>
+        <lightning:input type="number" name="Input" value="{! v.convertionNumber }"/>
+        <!--iterate the list of Currency-->
+        <lightning:layout horizontalAlign="space">
+            <aura:iteration items="{!v.ListOfCurrency}" var="rateLst">
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"> {!rateLst} </div>
+                </lightning:layoutItem>    
+            </aura:iteration>
+        </lightning:layout>
+         <lightning:layout horizontalAlign="space">
+            <aura:iteration items="{!v.ConvertedList}" var="convertedLst">
+                <lightning:layoutItem padding="around-small">
+                    <div class="custom-box"> {!convertedLst} </div>
+                </lightning:layoutItem>    
+            </aura:iteration>
+        </lightning:layout>
+    </div>
+</aura:component>

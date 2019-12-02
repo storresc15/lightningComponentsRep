@@ -1,0 +1,39 @@
+<aura:component controller="SendMyMailsController" >
+    
+   <aura:attribute name="email" type="string"/>
+   <aura:attribute name="subject" type="string"/>
+   <aura:attribute name="body" type="string"/>
+   <aura:attribute name="mailStatus" type="boolean" default="false"/>
+    
+    <aura:if isTrue="{!v.mailStatus}">
+        
+        <div role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal--prompt">
+         <div class="slds-modal__container">
+            <div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+               <h2 class="slds-text-heading--medium" id="prompt-heading-id">Mail Status</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+               <div>
+                  <p>Email Sent successfully to {!v.email}</p>
+               </div>
+            </div>
+            <div class="slds-modal__footer slds-theme--default">
+               <button class="slds-button slds-button--brand" onclick="{!c.closeMessage}">Close</button>
+            </div>
+         </div>
+      </div>
+      <div class="slds-backdrop slds-backdrop--open"></div>
+        
+    </aura:if>
+    
+    <div class="slds-m-around--medium">
+    <div class="slds-container--medium">
+       <lightning:input type="email" aura:id="email" label="To" name="email" value="{!v.email}" required="true" />
+       <lightning:input type="text" aura:id="Subject" label="Subject" name="Subject" value="{!v.subject}" />
+       <lightning:inputRichText aura:id="body" value="{!v.body}" />
+    
+    	<br/>
+		<lightning:button variant="brand" label="Send" onclick="{! c.sendMail }" />
+    </div>
+    </div>
+</aura:component>

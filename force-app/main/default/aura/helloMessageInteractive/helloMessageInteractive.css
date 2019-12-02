@@ -1,0 +1,12 @@
+.THIS .btn {
+  background-color: rgba(86, 83, 84);
+  color: #FFF !important;  
+  margin: 1em 1.2em 1em 1.2em;  
+  padding: .5rem 1rem .5rem 1rem;
+  font-size: 12px; 
+  border-radius: 25px;  
+  display: inline-block;
+    }
+.THIS .wrapp {
+	background-color: #d6d6d6;
+}

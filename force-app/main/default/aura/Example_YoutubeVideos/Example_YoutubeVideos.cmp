@@ -1,0 +1,15 @@
+<aura:component >
+ <iframe width="560" 
+         height="315" 
+         src="https://www.youtube.com/embed/KW5lO34uOsM" 
+         frameborder="0" 
+         allow="autoplay; encrypted-media">
+ </iframe> 
+    
+    <iframe width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/zqpkt80WbX0" 
+            frameborder="1" 
+            allow="autoplay; encrypted-media" 
+            ></iframe>
+</aura:component>

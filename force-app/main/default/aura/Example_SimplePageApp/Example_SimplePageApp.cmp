@@ -1,0 +1,31 @@
+<aura:component >
+    
+    <aura:attribute name="selTabId" type="string" default="2" />
+    
+    <lightning:tabset selectedTabId="{!v.selTabId}" >
+        
+        <lightning:tab label="Example 1" id="1">
+            <c:Example_MapComponent />
+        </lightning:tab>
+        
+        <lightning:tab label="Example 2" id="2">
+			<c:Example_InnerSOQLQuery />
+        </lightning:tab>
+        
+        <lightning:tab label="Example 3" id="3">
+            <p> <c:Example_TabularFormatTable /> </p>
+        </lightning:tab>
+   
+    </lightning:tabset>
+ 
+    <div class="slds-clearfix">
+      <div class="slds-float_left">
+          <!--disabled the back button on first Tab-->    
+        <lightning:button disabled="{!v.selTabId == '1'}" variant="neutral" label="Back" onclick="{!c.back}" />
+      </div>
+      <div class="slds-float_right">
+        <lightning:button disabled="{!v.selTabId == '3'}" variant="brand" label="Next" onclick="{!c.next}" />
+      </div>
+    </div>
+       
+</aura:component>

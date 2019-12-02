@@ -1,0 +1,37 @@
+<aura:component controller="SelectProducts" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" 
+				access="global" >
+    <aura:attribute name="lstProd" type="Object[]" />	
+    
+    <!--- on initialization of component init event will fire and doInit action will execute-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    
+    <div class="container">
+        <h2>Products</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product Name</th>
+                    <th>Product Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- TO Check if list is not empty-->
+                <aura:if isTrue="{!!empty(v.lstProd)}">
+                    <aura:iteration var="prod" items="{!v.lstProd}" >
+                        <tr>
+                            <td><ui:inputCheckbox value="{!prod.isSelected}"/></td>
+                            <td><ui:outputText value="{!prod.productName}"/></td>
+                            <td><ui:outputText value="{!prod.ProductCode}"/></td>
+                        </tr>
+                    </aura:iteration>
+                </aura:if>
+            </tbody>
+        </table>
+        
+        <ui:button class="btn btn-default" press="{!c.doSomething}">Delete</ui:button>
+        
+    </div>
+    
+</aura:component>

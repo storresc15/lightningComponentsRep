@@ -1,0 +1,25 @@
+<aura:component controller="getPicklistController">
+    
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+  <aura:attribute name="options" type="String[]" />
+    
+  <aura:attribute name="objInfo" type="Account" default="{sobjectType : 'Account'}" />
+   
+   <div>
+      
+      <div>
+         <lightning:select aura:id="select" label="Select Industry" onchange="{!c.onChange}" >
+            
+             
+             <aura:iteration items="{!v.options}" var="item">
+
+	            <option text="{!item.label}" value="{!item.value}"/>
+
+	         </aura:iteration>
+   
+             
+          </lightning:select>
+      </div>
+   </div>
+</aura:component>
