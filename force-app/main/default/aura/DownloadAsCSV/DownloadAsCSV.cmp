@@ -1,0 +1,52 @@
+<aura:component controller="downloadCSVController">          
+       
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/> 
+    
+    <aura:attribute name="ProductList" type="Product2[]"/> 
+    
+
+ 
+    <div class="slds-m-around--xx-large">   
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+          <thead>
+            <tr class="slds-text-title--caps">
+               
+                <th class="slds-is-sortable slds-text-title--caps" scope="col">
+                  <span class="slds-truncate" title="Name">Product Name</span>  
+               </th>
+                
+               <th class="slds-is-sortable slds-text-title--caps" scope="col">
+                  <span class="slds-truncate" title="Last Name">Product Code</span>
+               </th>
+                
+              <th class="slds-is-sortable slds-text-title--caps" scope="col">
+                  <span class="slds-truncate" title="Department">Active</span>
+               </th>
+                
+             </tr>
+          </thead>
+           
+          <tbody>
+            <aura:iteration items="{!v.ProductList}" var="prod">  
+            <tr>
+                  <th scope="row">
+                    <div class="slds-truncate" title="{!prod.ProductName}">{!prod.Name}</div>
+                  </th>
+                    
+                  <th scope="row">
+                    <div class="slds-truncate" title="{!prod.ProductCode}">{!prod.ProductCode}</div>
+                  </th>
+                    
+                   <th scope="row">
+                    <div class="slds-truncate" title="{!prod.isActive}">{!prod.isActive}</div>
+                  </th>
+            </tr>
+               
+            </aura:iteration>
+            
+          </tbody>
+        </table>
+        <br/><br/>
+        <lightning:button variant="brand" onclick="{!c.downloadAsCSV}" label="Download"/> 
+    </div>
+</aura:component>
