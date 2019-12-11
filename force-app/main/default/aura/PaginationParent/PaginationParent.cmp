@@ -1,0 +1,69 @@
+<aura:component controller="PagingSortingController">
+    
+	<aura:attribute type="Account[]" name="allAccounts" />
+    <aura:attribute type="Account[]" name="currentList" />
+    
+    <aura:attribute type="Integer" name="pageNumber" default="1" />
+    <aura:attribute type="Integer" name="maxPage" default="1" />
+      
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.pageNumber}"	action="{!c.renderPage}" />
+    
+    <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+      
+        
+        
+        <thead>
+            <tr class="slds-text-title--caps">
+                
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">
+                        Account Name
+                    </div>
+                </th>
+                
+                
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">
+                        Industry
+                    </div>
+                </th>
+                
+                
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">
+                        Annual Revenue
+                     </div>
+                </th>
+            </tr>
+        </thead>
+        
+        
+        <tbody>
+            <aura:iteration items="{!v.currentList}" var="record">
+                <tr>
+                	<th data-label="Account Name">
+                        <div class="slds-truncate" title="{!record.Name}">
+                            {!record.Name}
+                        </div>
+                    </th>
+                    
+                	<th data-label="Industry">
+                        <div class="slds-truncate" title="{!record.Industry}">
+                            {!record.Industry}
+                        </div>
+                    </th>
+                    
+                	<th data-label="Annual Revenue">
+                        <div class="slds-truncate" title="{!record.AnnualRevenue}">
+                            {!record.AnnualRevenue}
+                        </div>
+                    </th>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+
+    <c:PaginationComponentResource currentPageNumber="{!v.pageNumber}" maxPageNumber="{!v.maxPage}" />
+</aura:component>
